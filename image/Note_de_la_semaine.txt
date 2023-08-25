@@ -1,0 +1,376 @@
+Blockchain etherium
+
+Outil utiliser pour le cours : slidev (https://sli.dev/) , support pour html/css, markdown ect...
+
+Maths hyper importante dasn la blockchain, nom d'algo ect.. c'est comprendre la sécurité et clef de cryptage .
+
+Une fct de Hashage est une fonction pure (fct ou on lui donne un input, la réponses est toujours la même) et déterministe qui prend en entrée un message  de taille arbitraire et qui produit un en sortie un ensemble de taille fixe. Ces sorties sont généralement appelées Hash ou digest de l'entrée (input)
+
+Déterminisme : Pour une entrée donnée, la sortie est toujours la même.
+Vitesse : en général quelque milliseconde pour calculer le hash d'un message
+Resitance aux collisions : Il devrait être difficile de trouver deux messages différentes qui produise le même hash.
+non inversible : Une fonction de hashage ne doit pas pouvoir être inversée pour retrouver le message d'origine à partir du hash.
+
+
+Les fonction de hashage sont au cœur du maintient de l'intégralité des bases de données de type blockchain.
+Elles forment aussi la base du mécanisme de preuve de travail (Proof of Work) qui est utilisé pour sécurisé les blockchains de type Bitcoin.
+
+Blockachain : système de gestion de base de données.
+![[Pasted image 20230821094404.png]]
+
+
+
+
+![[Pasted image 20230821094430.png]]
+Registre : ledger en anglais (espace de stockage d'information)
+Décentraliser = totalité de la base de données se trouvant sur plusieurs serveurs.
+
+![[Pasted image 20230821100403.png]]
+
+etherscan : exploreur de bloc  (https://etherscan.io/), on a aces en direct aux transactions sans pour autant savoir qui est derrières les transaction, on ne voit que les clefs public. On sait seulement que c'est arrivé et authentique.
+
+![[Pasted image 20230821102528.png]]
+
+![[Pasted image 20230821105249.png]]
+le mineur est rémunéré pour valider les transactions.
+
+![[Pasted image 20230821110025.png]]
+carte graphique utile pour tester des calculs, trouver le nombre rapidement grace à celles-ci.
+
+![[Pasted image 20230821110617.png]]
+Première bockchain qui à explosé.
+
+![[Pasted image 20230821111216.png]]
+
+![[Pasted image 20230821111350.png]]
+
+![[Pasted image 20230821111606.png]]
+La banque (une autorité central,) contrôle la transaction.
+
+![[Pasted image 20230821111711.png]]
+Introduit en 2008, publication  : https://bitcoin.org/bitcoin.pdf
+clef public permet de faire des envois, clef public permet de faire des reçus.
+
+![[Pasted image 20230821112716.png]]
+Déployer du code de façon anonyme mais accessible à tlm (code source).
+
+Une fois le code déployer plus possible de faire des retour arrières.
+
+Une bdd public qui peut être exécuter par tlm.
+Plus le code est lourd plus le cout est élevé en monnaie de la blockchain.
+
+![[Pasted image 20230821113342.png]]
+
+https://ethereum.org/en/
+
+Objectif de la semaine : faire un application client qui va interragire avec la blockchain
+
+Installation de m'extesion chrom metmask : ![[Pasted image 20230821113750.png]]
+
+mdp : ;7[UCMmd:z82r8
+
+![[Pasted image 20230821114631.png]]
+
+![[Pasted image 20230821114739.png]]
+
+
+![[Pasted image 20230821114922.png]]
+
+
+Quels sont les avantages et inconvenant ??
+
+
+
+![[Pasted image 20230821115344.png]]
+
+finance décentralisé =! Binance 
+App qui vont être résistante à la fraude et consultable par tous.
+
+![[Pasted image 20230821120703.png]]
+
+![[Pasted image 20230821120930.png]]
+Authenticité des document, si c'est dans la blockchain c'est que c'est véridique.
+Permanence des données 
+
+Ipfs et hardwuiv ??
+
+![[Pasted image 20230821121422.png]]
+C'est la blockachain qui décide a travers les votes de chaque utilisateur.
+
+
+LImite techique (puissance de calcul) et compliquer de faire venir des utilisateurs car très techniques de comprendre.
+Métahmask peut donner les clefs privé au gouvernement américain, conseil : rester que tres peu de temps.
+
+![[Pasted image 20230821121757.png]]
+
+objectf de la semaine : ![[Pasted image 20230821122301.png]]
+déployer le contrat sur la blockchain, Dapp...
+
+
+
+Langage que l'on va utiliser est solidity, orienté objet , est influence par c++ python et js concus pour cibler les vm Ethereum.
+Permet d'interagier de maniere visible et tangible avec la blockchain.
+
+Blockchain va venir remplacer node et mango.
+
+On ne travaillera pas sur le Main net. on va se placer un blochkchaine de test
+
+On va venir sur Sepolia qui est un réseau de test.
+
+ecrire dans un nouvel onglet : 
+faucet sepolia pour recevoir 0.5 de test
+
+Ide gratuit sur le web aller sur remix ethereum : https://remix.ethereum.org/#lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.18+commit.87f61d96.js
+
+.sol = fichier solidity
+
+un contrat en solidity est une classe en c++ ou java 
+
+
+pour faire disparaitre l'erreur mettre :  
+
+```sol
+// SPDX-License-Identifier: MIT
+
+  
+
+pragma solidity ^0.8.13;
+
+```
+
+```sol
+ // SPDX-License-Identifier: MIT
+
+  
+
+//la valeur du compilateur doit être suppérieur ou égale a 0.8.13
+
+pragma solidity ^0.8.13;
+
+  
+
+contract MyFirstContract {
+
+  
+  
+
+    string public greet = "Hello World!";
+
+}
+
+```
+
+
+
+lié son compte avec methmask.
+Chaque transaction va couter des frais.
+Mon wellet : 0x120351E403DDB3dBe3298B320efE5e4246a4af9B
+
+aller sur sepolia etherscan pour voir la trasnsaction.
+
+rentrer son adresse de wallet 
+
+adresse de contract : ![[Pasted image 20230821142503.png]]
+le numéro de contract est : 0xf555ce82ff9e73f2b243c6df1de403cc079cc078
+
+un seul fichier : sigle file
+
+chercher la version du compilateur
+
+chercher le nom de la license.
+
+Entrer la totalité du code source 
+
+et deuxieme liens (celui qui est vert)
+
+aller à cette adresse dans un nouvel onglet : https://solidity-by-example.org/
+
+ce site va permettre de faire du solidity "propre", un genre de doc propre.
+
+
+
+
+aller sur : https://trufflesuite.com/
+ensemble de d'ouil qui permet de faire du dev avec un contrat en smart contrac, en localhost.
+
+drizz bien askip
+
+téléchargement de ganach et lecture de la doc.
+
+installation aussi de truffle : https://trufflesuite.com/docs/truffle/how-to/install/
+
+start soit avec : 'truffle init' soit avec 'truffle unbox'
+
+tapper :  `truffle unbox metacoin .`
+
+ouvrir le projet
+
+
+
+Mercredi : 
+
+EVM : Etherieum Virtual Machine : on peut exécuter du code arbitraire, plus un contrat est gourmant plus il va être cher à déployer (la puissance de la blockchain est limitée), c'est un bac à sable(environnement de test).
+
+Il nous est demander de faire une app react avec une bibliothèque Web3ip et Etherjs
+
+Dans la blockchain etherieum , on a un smart contract qui interagie avec une Dapp. pour que react interagisse avec la dapp il à besoins de son adresse.
+
+ABI : permet au bibliothèque de savoir quoi envoyer à la dapp, c'est un fichier json, interface de notre smart contract.
+
+Correction td 1 : 
+
+ERC20 est une norme un standard sur les jetons (standard, jeton qui à tel et tel propriété).
+
+OpenZeppelin : https://www.openzeppelin.com/
+Niveau sécurité c'est au jour le jour car Solidity pas en 1.0 c'est tout nouveau.
+
+ERC20 est un tokken fongible, on peut découpé les décimale.
+
+ETH découpable avec 18 décimal ==> creation d'une unité le 1Wei = 10^-18 ETH
+donc : 1 GWei =>10^-9 ETH
+		  1 MWei =>10^-12 ETH
+
+Un tokken non fongible est un NFT : ERC721
+
+
+
+Quand un "I" au début d'un nom d'un fichier info, c'est que le fichier va décrire une interface.
+Une interface est un ensemble de méthode non implémentée, c'est un contrat que l'on s'engage à respecter.
+
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+  
+```solidity
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.0.0/contracts/token/ERC20/ERC20.sol";
+
+  
+
+contract MyToken is ERC20 {
+
+    constructor() ERC20("Leekycash", "LKC") {
+
+        _mint(msg.sender, 1000000 * 10 ** decimals());
+
+    }
+
+}
+```
+
+ERC20 est un fonction de la classe mere
+mint est la fonction qui permet de créer de la moula
+par defaut dans quand on travil avec etherieum on parle en 10^-18 Eth.
+
+constructor() est une méthode de la "classe fille".
+
+
+
+
+
+Td 2 : 
+
+npmjs.com
+https://mochajs.org/ (framwork qui permet de faire des tests js)
+
+asserte permet de tester les valeurs des champs et retour de fonction. 
+
+
+Contracts: Compile:         cd truffle && truffle compile
+  Contracts: Test:            cd truffle && truffle test
+  Contracts: Migrate:         cd truffle && truffle migrate
+  Dapp: Run dev server:       cd client && npm start
+  Dapp: Test:                 cd client && npm test (ne marche pas car pas de script test qui existe)
+  Dapp: Build for production: cd client && npm run build
+
+React : usestat permet de retourner unn valeur d'état.
+useReducer : alternative de useStat plus performant. retunr un stat et un dispatch. Exécution en local.
+fonction dispatch : prend en para une action, (l'action est prise en paramètre du fonction reducer).
+reducer: fct prend en paramètre un stat et une action, elle return un state. espèce de gros switch qui va analyser la valeur.
+
+Les données web3 retournés sont énormes c'est pour cette raison que l'on privilégie le Usereducer
+
+
+fct Init : fct qui attends un artefact, initialise le stat et toutes les valeurs suivantes : 
+artefact : produit de compilation du smart contract de solidity (donc déjà déployé)
+web3 : cette bibliothèque va chercher methamask si pas trouver go ganash.
+account: compte lié
+networkId : le id chaine
+contract: recup à partir de l'iba (retourner depuis la blockchain)
+
+hook Useeffect appelle la focntion init avec l'artefact.
+
+récupère les info du contrat depuis la blockchain grâce à un interfact.
+
+
+Pour mettre à dispo le stat et le dispatch c'est grace à cette balise : <EthContext.Provider>
+
+
+
+
+
+Consigne TD3
+
+Consignes TP a rendre:
+
+- creer un smart contract qui permet de creer un mariage entre deux personnes
+- creer un test pour ce smart contract
+- deployer le smart contract sur ganache
+- deployer le smart contract sur sepolia
+- creer une application web qui permet d'interagir avec le smart contract, a l'aide de web3js ou ethersjs
+
+N'oubliez pas de preciser sur Github :
+
+- l'adresse du smart contract deploye sur ganache (ou un screenshot)
+- l'adresse du smart contract deploye sur sepolia
+- l'adresse du compte qui a permis le deploiement sur ganache et/ou sepolia
+
+Bonus :
+
+- le contrat de mariage peut etre represente par un jeton non fongible (ERC721 ou erc1155)
+- le contrat permet de divorcer
+- le contrat permet de creer un heritage
+- le contrat permet d'inscrire un enfant ou plus
+
+
+Jeudi : 
+Les wallets : 
+![[Pasted image 20230824091931.png]]
+La clefs privé est l'act de propriété c'est le plus important.
+un wallet froide est par exemple une clefs usb
+une  wallet chaud ça peut etre matamask 
+
+les transactions : 
+![[Pasted image 20230824092422.png]]
+
+ETH n'utilise plus le proof of work, les mineur ne décide plus si tel ou tel block va être jouter.
+Maintenant c'est proof of stack, ceux qui ont plus de 35ETH deviennent des validateurs et donc des nœuds important.
+
+
+Exemple de transaction : 
+![[Pasted image 20230824093259.png]]
+from : clefs publique de l'envoyeur
+to: clefs privé du receveurs
+nonce : réalisation d'un block
+gasLimit : cout de la transaction
+
+![[Pasted image 20230824093509.png]]
+Unité la plus courante est le GWei
+
+
+![[Pasted image 20230824093823.png]]
+
+L'evm execute le Bytecode
+![[Pasted image 20230824094229.png]]
+Solidity =>EVM bytecode => EVM
+
+
+Les smarts contracts : Une fois déployé un smart contract se comporte comme un compte sur la blockchain.
+![[Pasted image 20230824094440.png]]
+
+ABI : clefs qui contient un tableau 
+![[Pasted image 20230824094606.png]]
+
+si on possède notre propre nœud on ne sera pas ralenti lors du déploiement du contract, on est sur de ne pas passé par des instances mutualisées.
+
+Un nœud complet il contient toutes les infos de la blockchain 
